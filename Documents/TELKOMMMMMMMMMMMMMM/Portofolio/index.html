@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reyhan Asadella Zhafif | Junior Network Engineer</title>
+  <meta name="description" content="Portfolio of Reyhan Asadella Zhafif — Junior Network Engineer specializing in network infrastructure, routing, and server administration.">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- IBM Plex Mono (display/code) + IBM Plex Sans (body) — consistent dengan CSS variables -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVBAR ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">Reyhan<span class="logo-dot">.</span></a>
+
+      <!-- Hamburger untuk mobile -->
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <!-- Sliding indicator akan di-inject via JS -->
+        <span class="nav-indicator" id="navIndicator"></span>
+        <a href="#about"    class="nav-link" data-i18n="nav_about"    data-section="about">Tentang</a>
+        <a href="#skills"   class="nav-link" data-i18n="nav_skills"   data-section="skills">Keahlian</a>
+        <a href="#projects" class="nav-link" data-i18n="nav_projects" data-section="projects">Proyek</a>
+        <a href="#contact"  class="nav-link" data-i18n="nav_contact"  data-section="contact">Kontak</a>
+      </nav>
+
+      <!-- Toggle bahasa (SVG bendera) -->
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn" data-lang="id" aria-label="Bahasa Indonesia">
+          <svg viewBox="0 0 24 16" width="22" height="16"><rect width="24" height="8" fill="#e70011"/><rect width="24" height="8" y="8" fill="#ffffff"/></svg>
+        </button>
+        <button class="lang-btn" data-lang="en" aria-label="English">
+          <svg viewBox="0 0 24 16" width="22" height="16">
+            <rect width="24" height="16" fill="#00247d"/>
+            <path d="M0,0 L24,16 M24,0 L0,16" stroke="#ffffff" stroke-width="3"/>
+            <path d="M12,0 L12,16 M0,8 L24,8" stroke="#ffffff" stroke-width="5"/>
+            <path d="M12,0 L12,16 M0,8 L24,8" stroke="#cf142b" stroke-width="2.5"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ SECTION 1: HERO ============ -->
+    <section id="hero" class="hero">
+      <!-- Network topology canvas background -->
+      <canvas id="networkCanvas" class="network-canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-inner">
+
+        <!-- Kolom kiri: teks -->
+        <div class="hero-text">
+          <div class="status-badge">
+            <span class="status-dot">
+              <span class="status-ping"></span>
+            </span>
+            <span data-i18n="hero_badge">AVAILABLE FOR OPPORTUNITIES</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span data-i18n="hero_greeting">Hi, I'm</span> <span class="highlight">Reyhan Asadella Zhafif</span>
+          </h1>
+
+          <p class="hero-tagline" data-i18n-html="hero_tagline">
+            Junior Network Engineer &mdash; focused on <strong>network infrastructure</strong>,
+            <strong>routing</strong>, and <strong>server administration</strong>.
+          </p>
+
+          <!-- Terminal-style info baris -->
+          <div class="hero-terminal" aria-hidden="true">
+            <span class="terminal-prompt">root@reyhan:~$</span>
+            <span class="terminal-cmd" id="terminalCmd"></span>
+            <span class="terminal-cursor">▋</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" data-i18n="btn_view_projects">View Projects</a>
+            <a href="#contact"  class="btn btn-outline" data-i18n="btn_contact">Contact Me</a>
+            <a href="assets/CV ATS.pdf" class="btn btn-outline" download>
+              <span data-i18n="btn_download_cv">↓ Download CV</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom kanan: foto -->
+        <div class="hero-photo">
+          <div class="hero-photo-frame">
+            <img src="assets/images/Foto.png" alt="Foto Reyhan Asadella Zhafif" class="hero-photo-img">
+            <!-- Dekorasi sudut frame -->
+            <span class="frame-corner frame-corner--tl"></span>
+            <span class="frame-corner frame-corner--tr"></span>
+            <span class="frame-corner frame-corner--bl"></span>
+            <span class="frame-corner frame-corner--br"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-hint-text">scroll</span>
+        <span class="scroll-hint-arrow"></span>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 2: TENTANG SAYA ============ -->
+    <section id="about" class="about">
+      <div class="container about-inner">
+
+        <div class="about-text-col" data-animate="fadeUp">
+          <p class="section-eyebrow" data-i18n="about_eyebrow">01 / About Me</p>
+          <h2 class="section-title" data-i18n="about_title">About Me</h2>
+
+          <p class="about-name">Reyhan Asadella Zhafif <span class="about-nickname">(Reyhan)</span></p>
+
+          <p class="about-text" data-i18n="about_paragraph">
+            As an active student in Computer &amp; Network Engineering, I'm focused on developing myself as a Junior Network Engineer. I have a strong enthusiasm for designing, configuring, and troubleshooting network infrastructure. I'm experienced in managing network devices such as MikroTik and Ruijie, as well as administering services on Linux-based server operating systems (Debian/Ubuntu) and Windows Server. My main focus is building reliable, secure, and efficient network architecture to ensure optimal communication connectivity and server performance.
+          </p>
+        </div>
+
+        <div class="about-icon-col" aria-label="Tautan cepat profil sosial" data-animate="fadeUp" data-animate-delay="150">
+          <a href="https://www.linkedin.com/in/reyhan-asadella-zhafif-014565351" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn">
+            <!-- LinkedIn icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
+            <!-- GitHub icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.8 1.19 1.82 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.07.78 2.15v3.19c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+          </a>
+          <a href="mailto:reyhan.zhafif@gmail.com" class="icon-link" aria-label="Email">
+            <!-- Email icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SECTION 3: KEAHLIAN ============ -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <p class="section-eyebrow" data-i18n="skills_eyebrow" data-animate="fadeUp">02 / Skills</p>
+        <h2 class="section-title" data-i18n="skills_title" data-animate="fadeUp" data-animate-delay="50">Skills</h2>
+
+        <div class="skills-grid">
+
+          <!-- Networking -->
+          <div class="skill-card" data-animate="fadeUp" data-animate-delay="0">
+            <div class="skill-card-header">
+              <!-- Network icon -->
+              <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+                <line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/>
+                <line x1="5" y1="19" x2="19" y2="19"/>
+              </svg>
+              <h3 data-i18n="skills_cat_networking">Networking</h3>
+            </div>
+            <ul>
+              <li>Routing &amp; Switching, TCP/IP</li>
+              <li>VLAN &amp; Trunking</li>
+              <li>MikroTik Administration</li>
+              <li>Cisco &amp; Ruijie Managed Switch</li>
+              <li>DHCP &amp; Hotspot Configuration</li>
+              <li data-i18n="skills_topologi">Network Topology</li>
+            </ul>
+          </div>
+
+          <!-- System Administration -->
+          <div class="skill-card" data-animate="fadeUp" data-animate-delay="80">
+            <div class="skill-card-header">
+              <!-- Server icon -->
+              <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+                <circle cx="6" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="6" cy="18" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              <h3 data-i18n="skills_cat_sysadmin">System Administration</h3>
+            </div>
+            <ul>
+              <li>Linux Server (Debian/Ubuntu/CentOS)</li>
+              <li>Windows Server</li>
+              <li>DNS &amp; Web Server (Apache/Nginx)</li>
+              <li>FTP &amp; Samba/File Server</li>
+            </ul>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-card" data-animate="fadeUp" data-animate-delay="160">
+            <div class="skill-card-header">
+              <!-- Terminal/tools icon -->
+              <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>
+              </svg>
+              <h3 data-i18n="skills_cat_tools">Tools</h3>
+            </div>
+            <ul>
+              <li>Winbox</li>
+              <li>Cisco Packet Tracer</li>
+              <li>Ruijie Cloud/CLI</li>
+              <li>VirtualBox</li>
+            </ul>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="skill-card" data-animate="fadeUp" data-animate-delay="240">
+            <div class="skill-card-header">
+              <!-- People/team icon -->
+              <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2"/>
+                <path d="M2 21c0-3.31 3.13-6 7-6s7 2.69 7 6"/><path d="M17 11c2.21 0 4 1.79 4 4"/>
+              </svg>
+              <h3 data-i18n="skills_cat_softskill">Soft Skills</h3>
+            </div>
+            <ul>
+              <li>Technical Troubleshooting</li>
+              <li>Analytical Thinking</li>
+              <li>Team Collaboration</li>
+              <li>Documentation</li>
+              <li>Time Management</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 4: PROYEK & KARYA ============ -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <p class="section-eyebrow" data-i18n="projects_eyebrow" data-animate="fadeUp">03 / Projects</p>
+        <h2 class="section-title" data-i18n="projects_title" data-animate="fadeUp" data-animate-delay="50">Projects &amp; Work</h2>
+
+        <div class="carousel" id="projectCarousel">
+
+          <button class="carousel-arrow carousel-arrow--prev" id="carouselPrev" aria-label="Proyek sebelumnya">
+            <!-- Arrow left SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+          <button class="carousel-arrow carousel-arrow--next" id="carouselNext" aria-label="Proyek berikutnya">
+            <!-- Arrow right SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </button>
+
+          <div class="carousel-track" id="carouselTrack">
+
+            <!-- Project 1 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="0">
+              <a href="assets/images/project1.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project1.jpg" alt="Dokumentasi VLAN & Trunking" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','VLAN &amp; Trunking')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/></svg>
+                  Networking
+                </span>
+                <h3 data-i18n="project1_title">Layer 2 Network Security &amp; Segmentation Implementation</h3>
+                <p data-i18n="project1_desc">Implemented VLAN and Trunking using a Ruijie Managed Switch to segment the local network (LAN) and improve security for small-to-medium scale networks.</p>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="60">
+              <a href="assets/images/project2.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project2.jpg" alt="Dokumentasi cable management" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','Cable Management')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/></svg>
+                  Networking
+                </span>
+                <h3 data-i18n="project2_title">Physical Management &amp; Network Topology Planning</h3>
+                <p data-i18n="project2_desc">Designed cable management and port mapping for network infrastructure to produce an efficient, easy-to-maintain physical layout.</p>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="120">
+              <a href="assets/images/project3.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project3.jpg" alt="Dokumentasi konfigurasi DHCP/DNS" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','DHCP &amp; DNS')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="currentColor" stroke="none"/></svg>
+                  System Admin
+                </span>
+                <h3 data-i18n="project3_title">IP Addressing &amp; Domain Name Resolution Automation (DHCP &amp; DNS)</h3>
+                <p data-i18n="project3_desc">Built and configured DNS and DHCP Server services on server infrastructure (Linux &amp; Windows) to automate IP addressing and ensure stable domain name resolution.</p>
+              </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="0">
+              <a href="assets/images/project4.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project4.jpg" alt="Dokumentasi web server" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','Web Server')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="currentColor" stroke="none"/></svg>
+                  System Admin
+                </span>
+                <h3 data-i18n="project4_title">Multi-Platform Web Server Deployment</h3>
+                <p data-i18n="project4_desc">Built web server services across different operating systems (Linux and Windows Server) using Apache/Nginx to simulate internal company service availability accessible to clients.</p>
+              </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="60">
+              <a href="assets/images/project5.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project5.jpg" alt="Dokumentasi FTP/Samba" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','FTP &amp; Samba')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="currentColor" stroke="none"/></svg>
+                  System Admin
+                </span>
+                <h3 data-i18n="project5_title">Centralized Storage &amp; Secure File Sharing System</h3>
+                <p data-i18n="project5_desc">Implemented FTP and Samba/File Server services to create a centralized data storage system, enabling secure file exchange for users within the network.</p>
+              </div>
+            </article>
+
+            <!-- Project 6 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="120">
+              <a href="assets/images/project6.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project6.jpg" alt="Dokumentasi konfigurasi MikroTik" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','MikroTik Gateway')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/></svg>
+                  Networking
+                </span>
+                <h3 data-i18n="project6_title">Gateway Configuration &amp; Wireless AP Bridge via MikroTik</h3>
+                <p data-i18n="project6_desc">Configured a MikroTik router as the main internet gateway and Wireless AP Bridge, evenly distributing the connection to all wireless devices on the network.</p>
+              </div>
+            </article>
+
+            <!-- Project 7 -->
+            <article class="project-card" data-animate="fadeUp" data-animate-delay="180">
+              <a href="assets/images/project7.jpg" target="_blank" rel="noopener" class="project-thumb">
+                <img src="assets/images/project7.jpg" alt="Dokumentasi routing multi-server" onerror="this.parentElement.classList.add('project-thumb--placeholder'); this.style.display='none'; this.parentElement.setAttribute('data-label','Multi-Server Routing')">
+                <div class="project-thumb-overlay"></div>
+              </a>
+              <div class="project-body">
+                <span class="project-tag">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/></svg>
+                  Networking
+                </span>
+                <h3 data-i18n="project7_title">Multi-Server Network Traffic Routing &amp; Distribution</h3>
+                <p data-i18n="project7_desc">Designed MikroTik routing to distribute IP addresses to two separate servers and clients, ensuring access to specific content from each web server without traffic collisions.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Dot indicators -->
+          <div class="carousel-dots" id="carouselDots"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTION 5: KONTAK ============ -->
+    <section id="contact" class="contact">
+      <div class="container contact-inner">
+        <div data-animate="fadeUp">
+          <p class="section-eyebrow" data-i18n="contact_eyebrow">04 / Contact</p>
+          <h2 class="section-title" data-i18n="contact_title">Contact Me</h2>
+          <p class="about-text" data-i18n="contact_intro">Have a question or want to collaborate? Send a message directly through this form.</p>
+
+          <div class="social-links">
+            <a href="mailto:reyhan.zhafif@gmail.com" aria-label="Email" class="social-link-item" data-i18n="contact_link_email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+              Email
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="GitHub" class="social-link-item">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.58.24 2.75.12 3.04.74.8 1.19 1.82 1.19 3.08 0 4.41-2.7 5.38-5.27 5.67.42.36.78 1.07.78 2.15v3.19c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/reyhan-asadella-zhafif-014565351" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link-item">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" data-animate="fadeUp" data-animate-delay="150">
+          <label for="name" data-i18n="form_label_name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+
+          <label for="email" data-i18n="form_label_email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+
+          <label for="message" data-i18n="form_label_message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Send Message</button>
+          <p class="form-feedback" id="formFeedback" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>root@reyhan:~$ portfolio --status <span class="highlight">active</span> &middot; &copy; 2025</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
